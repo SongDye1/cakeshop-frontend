@@ -35,6 +35,7 @@ const SessionNewPage = () => {
             f7.dialog.close();
             location.replace("/");
           } catch (error) {
+            f7.dialog.alert(error?.response?.data || error?.message);
             f7.dialog.close();
             // toast.get().setToastText(error?.response?.data || error?.message).openToast()
           }

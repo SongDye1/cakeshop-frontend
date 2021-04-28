@@ -58,8 +58,16 @@ const MyApp = () => {
               {!loggedIn && (
                 <li>
                   <ul>
-                    <ListItem title="로그인" link="/users/sign_in"></ListItem>
-                    <ListItem title="회원가입" link="/users/sign_up"></ListItem>
+                    <ListItem
+                      title="로그인"
+                      link="/users/sign_in"
+                      panelClose
+                    ></ListItem>
+                    <ListItem
+                      title="회원가입"
+                      link="/users/sign_up"
+                      panelClose
+                    ></ListItem>
                   </ul>
                 </li>
               )}
@@ -72,10 +80,7 @@ const MyApp = () => {
                       icon="las la-question"
                       panelClose
                       onClick={handleLogout}
-                    ></ListItem>
-                    <ListItem
-                      title="마이페이지"
-                      link="/users/mypage"
+                      panelClose
                     ></ListItem>
                   </ul>
                 </li>
@@ -90,10 +95,13 @@ const MyApp = () => {
                     </a>
                     <div className="accordion-item-content">
                       <div className="block">
-                        <ListItem link="/wholeCake/" title="홀케이크" />
-                        <ListItem link="/wholeCake/" title="홀케이크" />
-                        <ListItem link="/pieceCake/" title="조각케이크" />
-                        <ListItem link="/specialCake" title="스페셜케이크" />
+                        <ListItem
+                          link="/wholeCake/"
+                          title="홀케이크"
+                          panelClose
+                        />
+                        <ListItem link="#" title="조각케이크" />
+                        <ListItem link="#" title="스페셜케이크" />
                       </div>
                     </div>
                   </li>
@@ -105,8 +113,8 @@ const MyApp = () => {
                     </a>
                     <div className="accordion-item-content">
                       <div className="block">
-                        <ListItem link="/macaron/" title="마카롱" />
-                        <ListItem link="/tart/" title="타르트" />
+                        <ListItem link="/macaron/" title="마카롱" panelClose />
+                        <ListItem link="#" title="타르트" />
                       </div>
                     </div>
                   </li>
@@ -121,6 +129,7 @@ const MyApp = () => {
       <Views tabs className="safe-areas">
         <Toolbar tabbar labels bottom>
           <Link
+            className="bg-white"
             tabLink="#view-home"
             tabLinkActive
             icon="las la-home"
