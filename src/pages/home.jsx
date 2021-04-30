@@ -13,15 +13,19 @@ import {
   Row,
 } from "framework7-react";
 import React, { useState, useEffect } from "react";
+import { getItems } from "../common/api";
 
 const HomePage = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/items", {})
-      .then((res) => res.json())
-      .then((res) => setItems(res));
+    async function itemList() {
+      const resultItems = await getItems();
+      setItems(resultItems.data);
+    }
+    itemList();
   }, []);
+  // console.log(items);
 
   return (
     <Page name="home">
@@ -45,16 +49,12 @@ const HomePage = () => {
         <h2 className="pt-4 text-center text-xl font-bold">HOLY WHOLE CAKE</h2>
         <p className="text-center text-sm">홀리 홀케이크</p>
         <Row className="text-center">
-          {items.map((itemList) => (
+          {items.map((data) => (
             <Col>
-              <img
-                className="w-24 h-24"
-                src={itemList.img}
-                alt="홀케이크 이미지"
-              />
+              <img className="w-24 h-24" src={data.img} alt="홀케이크 이미지" />
               <div>
-                <p className="text-xs">{itemList.name}</p>
-                <p className="text-xs">{itemList.price.toLocaleString()}원</p>
+                <p className="text-xs">{data.name}</p>
+                <p className="text-xs">{data.price.toLocaleString()}원</p>
               </div>
             </Col>
           ))}
@@ -66,19 +66,16 @@ const HomePage = () => {
         <h2 className="pt-4 text-center text-xl font-bold">MACARONE</h2>
         <p className="text-center text-sm">마카롱</p>
         <Row className="text-center">
-          {items.map((itemList) => (
-            <Col>
-              <img
-                className="w-24 h-24"
-                src={itemList.img}
-                alt="마카롱 이미지"
-              />
-              <div>
-                <p className="text-xs">{itemList.name}</p>
-                <p className="text-xs">{itemList.price.toLocaleString()}원</p>
-              </div>
-            </Col>
-          ))}
+          {items &&
+            items.map((data) => (
+              <Col>
+                <img className="w-24 h-24" src={data.img} alt="마카롱 이미지" />
+                <div>
+                  <p className="text-xs">{data.name}</p>
+                  <p className="text-xs">{data.price.toLocaleString()}원</p>
+                </div>
+              </Col>
+            ))}
         </Row>
       </div>
     </Page>

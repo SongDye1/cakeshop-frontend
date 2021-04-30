@@ -100,7 +100,7 @@ const MyApp = () => {
                           title="홀케이크"
                           panelClose
                         />
-                        <ListItem link="#" title="조각케이크" />
+                        <ListItem link="/itemDetail/" title="조각케이크" />
                         <ListItem link="#" title="스페셜케이크" />
                       </div>
                     </div>
@@ -137,7 +137,6 @@ const MyApp = () => {
           />
           <Link tabLink="#view-items" icon="las la-gift" text="쇼핑" />
           <Link tabLink="#view-users" icon="las la-address-book" text="찜" />
-          <Link tabLink="#view-contacts" icon="las la-edit" text="마이페이지" />
           <Link
             tabLink="#view-carts"
             icon="las la-shopping-cart"
