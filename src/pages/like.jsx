@@ -2,7 +2,7 @@ import { Link, Navbar, NavLeft, Page, Row, Col } from "framework7-react";
 import React, { useState, useEffect } from "react";
 import { getItems } from "../common/api";
 
-const WholeCake = () => {
+const Like = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -14,10 +14,9 @@ const WholeCake = () => {
   }, []);
 
   return (
-    <Page name="wholeCake">
+    <Page name="like">
       {/* Top Navbar */}
-      {/* 뒤로가기 아이콘 */}
-      <Navbar sliding={false} backLink>
+      <Navbar sliding={false}>
         <NavLeft>
           <Link icon="las la-bars" panelOpen="left" />
         </NavLeft>
@@ -25,8 +24,8 @@ const WholeCake = () => {
 
       {/* Page content */}
       <div>
-        <h2 className="pt-4 text-center text-xl font-bold">WHOLE CAKE</h2>
-        <p className="text-center text-sm">홀케이크</p>
+        <h2 className="pt-4 text-center text-xl font-bold">Like</h2>
+        <p className="text-center text-sm">찜 목록</p>
 
         {items.map((data) => (
           <div key={data.id}>
@@ -47,7 +46,7 @@ const WholeCake = () => {
                     찜
                   </Link>
                   <Link href="#" className="link text-red-600">
-                    장바구니
+                    삭제
                   </Link>
                 </div>
               </div>
@@ -58,4 +57,4 @@ const WholeCake = () => {
     </Page>
   );
 };
-export default WholeCake;
+export default Like;

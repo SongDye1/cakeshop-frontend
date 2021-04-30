@@ -47,12 +47,12 @@ const HomePage = () => {
       {/* WHOLE CAKE */}
       <div>
         <h2 className="pt-4 text-center text-xl font-bold">HOLY WHOLE CAKE</h2>
-        <p className="text-center text-sm">홀리 홀케이크</p>
-        <Row className="text-center">
+        <p className="text-center text-sm mb-3">홀리 홀케이크</p>
+        <Row>
           {items.map((data) => (
             <Col>
               <img className="w-24 h-24" src={data.img} alt="홀케이크 이미지" />
-              <div>
+              <div className="text-center">
                 <p className="text-xs">{data.name}</p>
                 <p className="text-xs">{data.price.toLocaleString()}원</p>
               </div>
@@ -63,16 +63,18 @@ const HomePage = () => {
 
       {/* macarone */}
       <div>
-        <h2 className="pt-4 text-center text-xl font-bold">MACARONE</h2>
-        <p className="text-center text-sm">마카롱</p>
+        <h2 className="pt-5 text-center text-xl font-bold">MACARONE</h2>
+        <p className="text-center text-sm mb-3">마카롱</p>
         <Row className="text-center">
           {items &&
             items.map((data) => (
-              <Col>
+              <Col className="">
                 <img className="w-24 h-24" src={data.img} alt="마카롱 이미지" />
                 <div>
                   <p className="text-xs">{data.name}</p>
-                  <p className="text-xs">{data.price.toLocaleString()}원</p>
+                  <p className="text-xs mb-7">
+                    {data.price.toLocaleString()}원
+                  </p>
                 </div>
               </Col>
             ))}

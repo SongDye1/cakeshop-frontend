@@ -39,15 +39,26 @@ const ItemDetail = (f7route) => {
 
       {/* Page content */}
       <div>
-        <img src={items.img} alt="상품 이미지" />
-        <p className="text-xl font-bold mt-5 mx-2.5">{items.name}</p>
+        <img className="w-full h-96" src={items.img} />
+        <p className="text-xl  mt-5 mx-2.5 font-bold">{items.name}</p>
         <p className="text-lg mx-2.5 mb-5 text-red-600">{items.price}원</p>
+
+        <div className="block block-strong">
+          <p className="row pb-6">
+            <button className="col button button-large button-raised color-black">
+              장바구니 담기
+            </button>
+
+            <button className="col button button-large button-raised button-fill color-black">
+              구매하기
+            </button>
+          </p>
+        </div>
       </div>
 
       <div>
-        <p className="text-center text-base p-2 border-t-2 border-b-2">
-          상세정보
-        </p>
+        <p className="text-center text-base mb-3 p-2 bg-gray-100">상세정보</p>
+
         <img
           className="w-full"
           src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2hpdGUlMjBjaG9jb2xhdGVzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"

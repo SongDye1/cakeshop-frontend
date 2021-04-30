@@ -100,7 +100,7 @@ const MyApp = () => {
                           title="홀케이크"
                           panelClose
                         />
-                        <ListItem link="/itemDetail/" title="조각케이크" />
+                        <ListItem link="#" title="조각케이크" />
                         <ListItem link="#" title="스페셜케이크" />
                       </div>
                     </div>
@@ -152,7 +152,7 @@ const MyApp = () => {
           iosDynamicNavbar={false}
         />
         <View id="view-items" name="items" tab url="/items?is_main=true/" />
-        <View id="view-users" name="users" tab url="/users?is_main=true" />
+        <View id="view-users" name="users" tab url="/like" />
         <View id="view-contacts" name="contacts" tab url="/contacts" />
         <View id="view-carts" name="carts" tab url="/carts" />
       </Views>
