@@ -1,24 +1,28 @@
+import React, { useState, useEffect } from "react";
 import {
-  Block,
-  BlockTitle,
-  Button,
-  Col,
   Link,
-  List,
-  ListItem,
   Navbar,
   NavLeft,
   NavTitle,
   Page,
   Row,
   f7route,
+  Stepper,
+  BlockTitle,
+  Block,
+  Col,
+  Button,
 } from "framework7-react";
-import React, { useState, useEffect } from "react";
+
 import { getItemDetail } from "../common/api";
+import { orderState } from "../common/recoil";
+import { useRecoilState } from "recoil";
 
 const ItemDetail = (f7route) => {
   const [items, setItems] = useState([]);
+  const [order, setOrder] = useRecoilState(orderState);
 
+  // 아이템 불러오기
   useEffect(() => {
     async function itemList() {
       const resultItems = await getItemDetail(f7route.id);
@@ -26,7 +30,13 @@ const ItemDetail = (f7route) => {
     }
     itemList();
   }, []);
-  console.log(items);
+  console.log("items", items);
+
+  // 주문하기 버튼 클릭
+  const orderClick = (e) => {
+    setOrder({ img: items.img, name: items.name, price: items.price });
+    console.log("orderclick", order);
+  };
 
   return (
     <Page name="itemDetail">
@@ -43,22 +53,33 @@ const ItemDetail = (f7route) => {
         <p className="text-xl  mt-5 mx-2.5 font-bold">{items.name}</p>
         <p className="text-lg mx-2.5 mb-5 text-red-600">{items.price}원</p>
 
-        <div className="block block-strong">
-          <p className="row pb-6">
-            <button className="col button button-large button-raised color-black">
-              장바구니 담기
-            </button>
-
-            <button className="col button button-large button-raised button-fill color-black">
-              구매하기
-            </button>
-          </p>
-        </div>
+        <Block strong>
+          <Row tag="p">
+            <Col tag="span">
+              <Button large raised color="black">
+                장바구니 담기
+              </Button>
+            </Col>
+            <Col tag="span">
+              <Button
+                large
+                raised
+                fill
+                color="black"
+                onClick={(e) => orderClick(e)}
+                href="/order/"
+              >
+                주문하기
+              </Button>
+            </Col>
+          </Row>
+        </Block>
       </div>
 
       <div>
-        <p className="text-center text-base mb-3 p-2 bg-gray-100">상세정보</p>
-
+        <p className="text-center text-base mt-6 mb-2 p-2 bg-gray-100">
+          상세정보
+        </p>
         <img
           className="w-full"
           src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2hpdGUlMjBjaG9jb2xhdGVzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"

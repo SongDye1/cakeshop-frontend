@@ -12,11 +12,11 @@ const WholeCake = () => {
     }
     itemList();
   }, []);
+  console.log(items);
 
   return (
     <Page name="wholeCake">
       {/* Top Navbar */}
-      {/* 뒤로가기 아이콘 */}
       <Navbar sliding={false} backLink>
         <NavLeft>
           <Link icon="las la-bars" panelOpen="left" />

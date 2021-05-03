@@ -6,6 +6,7 @@ import SignUpPage from "../pages/users/registrations/new.jsx";
 import WholeCake from "../pages/wholeCake.jsx";
 import Macaron from "../pages/macaron.jsx";
 import ItemDetail from "../pages/itemDetail.jsx";
+import Order from "../pages/order.jsx";
 import Like from "../pages/like.jsx";
 
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
   { path: "/macaron", component: Macaron },
   { path: "/itemDetail", component: ItemDetail },
   { path: "/itemDetail/:id", component: ItemDetail },
+  { path: "/order", component: Order },
   { path: "/like", component: Like },
   { path: "(.*)", component: NotFoundPage },
 ];
