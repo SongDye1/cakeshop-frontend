@@ -22,7 +22,7 @@ const ItemDetail = (f7route) => {
   const [items, setItems] = useState([]);
   const [order, setOrder] = useRecoilState(orderState);
 
-  // 아이템 불러오기
+  // 각 id별 아이템 불러오기
   useEffect(() => {
     async function itemList() {
       const resultItems = await getItemDetail(f7route.id);
@@ -30,12 +30,16 @@ const ItemDetail = (f7route) => {
     }
     itemList();
   }, []);
-  console.log("items", items);
+  // console.log("items", items);
 
-  // 주문하기 버튼 클릭
-  const orderClick = (e) => {
-    setOrder({ img: items.img, name: items.name, price: items.price });
-    console.log("orderclick", order);
+  // 주문하기 버튼 클릭 시 아이템 전달
+  const handleClick = (e) => {
+    setOrder({
+      img: items.img,
+      name: items.name,
+      price: items.price,
+    });
+    // console.log("orderclick", items);
   };
 
   return (
@@ -51,7 +55,9 @@ const ItemDetail = (f7route) => {
       <div>
         <img className="w-full h-96" src={items.img} />
         <p className="text-xl  mt-5 mx-2.5 font-bold">{items.name}</p>
-        <p className="text-lg mx-2.5 mb-5 text-red-600">{items.price}원</p>
+        <p className="text-lg mx-2.5 mb-5 text-red-600">
+          {Number(items.price).toLocaleString()}원
+        </p>
 
         <Block strong>
           <Row tag="p">
@@ -66,7 +72,7 @@ const ItemDetail = (f7route) => {
                 raised
                 fill
                 color="black"
-                onClick={(e) => orderClick(e)}
+                onClick={(e) => handleClick(e)}
                 href="/order/"
               >
                 주문하기

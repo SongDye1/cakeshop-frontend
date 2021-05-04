@@ -10,38 +10,22 @@ import {
   List,
   ListInput,
 } from "framework7-react";
-import { getItemDetail } from "../common/api";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 import { useRecoilValue } from "recoil";
 import { orderState } from "../common/recoil";
+import { orderItem } from "../common/api";
 
 const OrderSchema = Yup.object().shape({
-  name: Yup.string().required("필수 입력사항 입니다"),
+  receiver_name: Yup.string().required("필수 입력사항 입니다"),
+  receiver_phone: Yup.string().required("필수 입력사항 입니다"),
   address: Yup.string().required("필수 입력사항 입니다"),
-  // email: Yup.string().email().required("필수 입력사항 입니다"),
-  // password: Yup.string()
-  //   .min(4, "길이가 너무 짧습니다")
-  //   .max(50, "길이가 너무 깁니다")
-  //   .required("필수 입력사항 입니다"),
-  // password_confirmation: Yup.string()
-  //   .oneOf([Yup.ref("password"), null], "비밀번호가 일치하지 않습니다.")
-  //   .required("필수 입력사항 입니다"),
 });
 
-const Order = (f7route) => {
-  const [items, setItems] = useState([]);
-  const order = useRecoilValue(orderState);
-
-  // useEffect(() => {
-  //   async function itemList() {
-  //     const resultItems = await getItemDetail(f7route.id);
-  //     setItems(resultItems.data);
-  //   }
-  //   itemList();
-  // }, []);
-  // console.log(items);
+const Order = () => {
+  const order = useRecoilValue(orderState); // 주문상품 정보 가져오기
+  const totalPrice = order.price + 2500;
 
   return (
     <Page name="order">
@@ -52,72 +36,73 @@ const Order = (f7route) => {
           <Link icon="las la-bars" panelOpen="left" />
         </NavLeft>
       </Navbar>
+
       {/* Page content */}
       <div>
         <p className="p-3 text-base font-semibold bg-white">주문 상품</p>
-        <img className="w-28 h-28" src={order.img} />
-        <span className="text-lg">{order.name}</span>
-        <span className="text-lg">{order.price}원</span>
+        <img className="w-24 h-24" src={order.img} />
+        <span className="text-sm">상품명: {order.name}</span>
+        <p className="text-sm">상품가격: {order.price.toLocaleString()}원</p>
       </div>
+
       <Formik
         initialValues={{
-          name: "",
-          phoneNumber: "",
+          receiver_name: "",
+          receiver_phone: "",
           address: "",
+          total_price: totalPrice,
         }}
         validationSchema={OrderSchema}
         onSubmit={async (values, { setSubmitting }) => {
-          // await sleep(400);
           setSubmitting(false);
-          f7.dialog.preloader("잠시만 기다려주세요...");
+          f7.dialog.preloader("결제가 진행 중입니다.");
           try {
-            (await signup({ user: values })).data;
-            // toast.get().setToastText("로그인 되었습니다.").openToast();
-            f7.dialog.preloader("로그인 되었습니다.");
+            await orderItem(values);
             location.replace("/");
+            f7.dialog.alert("결제가 완료되었습니다.");
           } catch (error) {
-            f7.dialog.alert(error?.response?.data || error?.message);
-            // f7.dialog.close();
-            // toast.get().setToastText(error?.response?.data || error?.message).openToast();
+            f7.dialog.alert("개인 정보를 다시 확인해 주세요.");
+            f7.dialog.close();
           }
         }}
         validateOnMount={true}
+        enableReinitialize
       >
         {({
-          handleChange,
-          handleBlur,
+          handleChange, // 입력 변경 이벤트
+          handleBlur, // 입력 여부 확인
           values,
           errors,
           touched,
-          isSubmitting,
+          isSubmitting, // 양식 상태 제출
           isValid,
         }) => (
-          // 개인정보
           <Form>
             <List noHairlinesMd>
               <div className="p-3 font-semibold bg-white">개인 정보</div>
               <ListInput
                 label="받는 사람"
                 type="text"
-                name="name"
+                name="receiver_name"
                 placeholder="이름을 입력해주세요"
                 clearButton
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.name}
+                value={values.receiver_name}
                 errorMessageForce={true}
-                errorMessage={touched.name && errors.name}
+                errorMessage={touched.receiver_name && errors.receiver_name}
               />
               <ListInput
                 label="휴대폰 번호"
                 type="number"
-                name="number"
+                name="receiver_phone"
                 placeholder="연락처를 입력해주세요"
                 clearButton
-                value={values.number}
+                value={values.receiver_phone}
                 onChange={handleChange}
-                // errorMessageForce={true}
-                // errorMessage={touched.password && errors.password}
+                onBlur={handleBlur}
+                errorMessageForce={true}
+                errorMessage={touched.receiver_phone && errors.receiver_phone}
               />
               <ListInput
                 label="주소"
@@ -127,27 +112,24 @@ const Order = (f7route) => {
                 clearButton
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.address}
                 errorMessageForce={true}
-                // errorMessage={
-                //   touched.password_confirmation && errors.password_confirmation
-                // }
+                errorMessage={touched.address && errors.address}
               />
             </List>
 
-            {/*결제금액 */}
+            {/*결제정보 */}
             <div>
-              <p className="p-3 text-base font-semibold bg-white">
-                총 결제 금액
+              <p className="p-3 text-base font-semibold bg-white">결제 정보</p>
+              <p className="text-base">배송비: 2,500원</p>
+              <p className="text-base pb-4">
+                총 결제금액: {totalPrice.toLocaleString()}원
               </p>
-              <p className="text-lg pb-4">{items.price}원</p>
             </div>
-
             <div className="p-4">
               <button
                 type="submit"
                 className="button button-fill color-black button-large disabled:opacity-50"
-                disabled={isSubmitting || !isValid}
+                disabled={isSubmitting || !isValid} // 버튼 활성화
               >
                 결제하기
               </button>

@@ -32,7 +32,7 @@ const HomePage = () => {
       {/* Top Navbar */}
       <Navbar sliding={false}>
         <NavLeft>
-          <Link icon="las la-bars" panelOpen="left" />
+          <Link href={false} icon="las la-bars" panelOpen="left" />
         </NavLeft>
       </Navbar>
 

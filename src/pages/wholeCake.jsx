@@ -5,6 +5,7 @@ import { getItems } from "../common/api";
 const WholeCake = () => {
   const [items, setItems] = useState([]);
 
+  // 아이템 리스트 불러오기
   useEffect(() => {
     async function itemList() {
       const resultItems = await getItems();
@@ -12,7 +13,7 @@ const WholeCake = () => {
     }
     itemList();
   }, []);
-  console.log(items);
+  // console.log(items);
 
   return (
     <Page name="wholeCake">

@@ -42,4 +42,6 @@ export const logout = (_) =>
 export const getItems = (params) => API.get("/items", params);
 export const getItemDetail = (id) => API.get(`/items/${id}`);
 
+export const orderItem = (params) => API.post("/orders", params);
+
 export const getLikes = (params) => API.get("/likes", params);
