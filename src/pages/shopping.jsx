@@ -2,7 +2,7 @@ import { Link, Navbar, NavLeft, Page, Row, Col } from "framework7-react";
 import React, { useState, useEffect } from "react";
 import { getItems } from "../common/api";
 
-const Macaron = () => {
+const Shopping = () => {
   const [items, setItems] = useState([]);
 
   // 아이템 리스트 불러오기
@@ -13,22 +13,23 @@ const Macaron = () => {
     }
     itemList();
   }, []);
+  // console.log(items.slice(0, 5));
 
   return (
-    <Page name="macaron">
+    <Page name="shopping">
       {/* Top Navbar */}
-      <Navbar sliding={false} backLink></Navbar>
+      <Navbar sliding={false}></Navbar>
 
       {/* Page content */}
       <div>
-        <h2 className="mt-8 text-center text-2xl">MACARONE</h2>
-        <p className="text-center text-sm mt-1">마카롱</p>
+        <h2 className="mt-8 text-center text-2xl">WHOLE CAKE & MACARONE</h2>
+        <p className="text-center text-sm mt-1">홀케이크 & 마카롱</p>
 
-        {items.slice(5, 10).map((data) => (
+        {items.map((data) => (
           <div key={data.id}>
             <Link href={`/itemDetail/${data.id}`}>
-              <div className="content-center col card demo-card-header-pic">
-                <div className="card-header ">
+              <div className="col card demo-card-header-pic">
+                <div className="card-header">
                   <img className="w-full h-64" src={data.img} />
                 </div>
                 <div className="card-content card-content-padding">
@@ -51,4 +52,4 @@ const Macaron = () => {
     </Page>
   );
 };
-export default Macaron;
+export default Shopping;

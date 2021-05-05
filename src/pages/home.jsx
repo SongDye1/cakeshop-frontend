@@ -1,11 +1,6 @@
 import {
-  Block,
-  BlockTitle,
-  Button,
   Col,
   Link,
-  List,
-  ListItem,
   Navbar,
   NavLeft,
   NavTitle,
@@ -18,6 +13,7 @@ import { getItems } from "../common/api";
 const HomePage = () => {
   const [items, setItems] = useState([]);
 
+  // 아이템 리스트 불러오기
   useEffect(() => {
     async function itemList() {
       const resultItems = await getItems();
@@ -32,7 +28,7 @@ const HomePage = () => {
       {/* Top Navbar */}
       <Navbar sliding={false}>
         <NavLeft>
-          <Link href={false} icon="las la-bars" panelOpen="left" />
+          <Link icon="las la-bars" panelOpen="left" href={false} />
         </NavLeft>
       </Navbar>
 
@@ -48,35 +44,56 @@ const HomePage = () => {
       <div>
         <h2 className="pt-4 text-center text-xl font-bold">HOLY WHOLE CAKE</h2>
         <p className="text-center text-sm mb-3">홀리 홀케이크</p>
-        <Row>
-          {items.map((data) => (
-            <Col>
-              <img className="w-24 h-24" src={data.img} alt="홀케이크 이미지" />
-              <div className="text-center">
-                <p className="text-xs">{data.name}</p>
-                <p className="text-xs">{data.price.toLocaleString()}원</p>
+
+        <div className="p-2">
+          {items &&
+            items.slice(0, 3).map((data) => (
+              <div key={data.id}>
+                <Link href={`/itemDetail/${data.id}`}>
+                  <div className="flex flex-row">
+                    <img
+                      className="w-24 h-24"
+                      src={data.img}
+                      alt="홀케이크 이미지"
+                    />
+                    <div className="flex-col text-center">
+                      <p className="text-xs">{data.name}</p>
+                      <p className="text-xs text-red-500">
+                        {data.price.toLocaleString()}원
+                      </p>
+                    </div>
+                  </div>
+                </Link>
               </div>
-            </Col>
-          ))}
-        </Row>
+            ))}
+        </div>
       </div>
 
       {/* macarone */}
       <div>
-        <h2 className="pt-5 text-center text-xl font-bold">MACARONE</h2>
+        <h2 className="pt-4 text-center text-xl font-bold">MACARONE</h2>
         <p className="text-center text-sm mb-3">마카롱</p>
-        <Row className="text-center">
+
+        <Row className="p-2">
           {items &&
-            items.map((data) => (
-              <Col className="">
-                <img className="w-24 h-24" src={data.img} alt="마카롱 이미지" />
-                <div>
-                  <p className="text-xs">{data.name}</p>
-                  <p className="text-xs mb-7">
-                    {data.price.toLocaleString()}원
-                  </p>
-                </div>
-              </Col>
+            items.slice(5, 9).map((data) => (
+              <div key={data.id}>
+                <Link href={`/itemDetail/${data.id}`}>
+                  <Col>
+                    <img
+                      className="w-24 h-24"
+                      src={data.img}
+                      alt="마카롱 이미지"
+                    />
+                    <div className="text-center">
+                      <p className="text-xs">{data.name}</p>
+                      <p className="text-xs text-red-500">
+                        {data.price.toLocaleString()}원
+                      </p>
+                    </div>
+                  </Col>
+                </Link>
+              </div>
             ))}
         </Row>
       </div>

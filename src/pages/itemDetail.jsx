@@ -45,29 +45,26 @@ const ItemDetail = (f7route) => {
   return (
     <Page name="itemDetail">
       {/* Top Navbar */}
-      <Navbar sliding={false} backLink>
-        <NavLeft>
-          <Link icon="las la-bars" panelOpen="left" />
-        </NavLeft>
-      </Navbar>
+      <Navbar sliding={false} backLink></Navbar>
 
       {/* Page content */}
       <div>
         <img className="w-full h-96" src={items.img} />
-        <p className="text-xl  mt-5 mx-2.5 font-bold">{items.name}</p>
+        <p className="text-xl mt-5 mx-2.5">{items.name}</p>
         <p className="text-lg mx-2.5 mb-5 text-red-600">
           {Number(items.price).toLocaleString()}원
         </p>
 
         <Block strong>
           <Row tag="p">
-            <Col tag="span">
+            {/* <Col tag="span">
               <Button large raised color="black">
                 장바구니 담기
               </Button>
-            </Col>
+            </Col> */}
             <Col tag="span">
               <Button
+                className="mx-3"
                 large
                 raised
                 fill

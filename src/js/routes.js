@@ -5,9 +5,11 @@ import LoginPage from "../pages/users/sessions/new.jsx";
 import SignUpPage from "../pages/users/registrations/new.jsx";
 import WholeCake from "../pages/wholeCake.jsx";
 import Macaron from "../pages/macaron.jsx";
+import Shopping from "../pages/shopping.jsx";
 import ItemDetail from "../pages/itemDetail.jsx";
 import Order from "../pages/order.jsx";
 import Like from "../pages/like.jsx";
+import Cart from "../pages/cart.jsx";
 
 const routes = [
   { path: "/", component: HomePage },
@@ -15,10 +17,12 @@ const routes = [
   { path: "/users/sign_up", component: SignUpPage },
   { path: "/wholeCake", component: WholeCake },
   { path: "/macaron", component: Macaron },
+  { path: "/shopping", component: Shopping },
   { path: "/itemDetail", component: ItemDetail },
   { path: "/itemDetail/:id", component: ItemDetail },
   { path: "/order", component: Order },
   { path: "/like", component: Like },
+  { path: "/cart", component: Cart },
   { path: "(.*)", component: NotFoundPage },
 ];
 

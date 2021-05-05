@@ -158,10 +158,15 @@ const MyApp = () => {
             url="/"
             iosDynamicNavbar={false}
           />
-          <View id="view-items" name="items" tab url="/items?is_main=true/" />
+          <View
+            id="view-items"
+            name="items"
+            tab
+            url="/shopping?is_main=true/"
+          />
           <View id="view-users" name="users" tab url="/like" />
           <View id="view-contacts" name="contacts" tab url="/contacts" />
-          <View id="view-carts" name="carts" tab url="/carts" />
+          <View id="view-carts" name="carts" tab url="/cart" />
         </Views>
       </App>
     </RecoilRoot>

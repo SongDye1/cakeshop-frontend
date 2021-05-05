@@ -10,18 +10,20 @@ import {
 } from "framework7-react";
 import React from "react";
 
-const Like = () => {
+const Cart = () => {
   return (
-    <Page name="like">
+    <Page name="cart">
       {/* Top Navbar */}
       <Navbar sliding={false}></Navbar>
 
       {/* Page content */}
       <div>
-        <h2 className="mt-6 pb-4 text-center text-xl font-bold border-b">찜</h2>
+        <h2 className="mt-6 pb-4 text-center text-xl font-bold border-b">
+          장바구니
+        </h2>
         <div>
           <p className="mt-4 pt-36 text-center text-base">
-            좋아요한 상품이 없습니다.
+            장바구니에 담긴 상품이 없습니다.
           </p>
           <Block strong className="mx-6 mt-3">
             <Col>
@@ -42,4 +44,4 @@ const Like = () => {
     </Page>
   );
 };
-export default Like;
+export default Cart;
