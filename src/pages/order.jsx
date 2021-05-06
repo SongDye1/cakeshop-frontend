@@ -19,7 +19,7 @@ import { orderItem } from "../common/api";
 
 const OrderSchema = Yup.object().shape({
   receiver_name: Yup.string().required("이름을 입력해 주세요"),
-  receiver_phone: Yup.string().required("전화번호를 입력해 주세요"),
+  receiver_phone: Yup.string().required("숫자만 입력해 주세요"),
   address: Yup.string().required("주소를 입력해 주세요"),
 });
 
@@ -65,7 +65,6 @@ const Order = () => {
           try {
             await orderItem(values);
             location.replace("/");
-            f7.dialog.alert("결제가 완료되었습니다.");
           } catch (error) {
             f7.dialog.alert("개인 정보를 다시 확인해 주세요.");
             f7.dialog.close();

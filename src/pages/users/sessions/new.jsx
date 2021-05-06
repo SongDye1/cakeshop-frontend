@@ -21,7 +21,7 @@ const SessionNewPage = () => {
         backLink={true}
         sliding={false}
       />
-      <p className="font-semibole text-4xl text-center mt-5">insomenia</p>
+      <p className="font-semibole text-3xl text-center mt-5">HOLY CAKESHOP</p>
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={SignInSchema}

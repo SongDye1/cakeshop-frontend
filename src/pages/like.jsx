@@ -31,7 +31,7 @@ const Like = () => {
                 raised
                 fill
                 color="black"
-                href="/wholeCake/"
+                onClick={() => location.replace("/")}
               >
                 쇼핑 계속하기
               </Button>

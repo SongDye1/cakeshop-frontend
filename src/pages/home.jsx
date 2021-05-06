@@ -42,21 +42,23 @@ const HomePage = () => {
 
       {/* WHOLE CAKE */}
       <div>
-        <h2 className="pt-4 text-center text-xl font-bold">HOLY WHOLE CAKE</h2>
-        <p className="text-center text-sm mb-3">홀리 홀케이크</p>
+        <h2 className="pt-4 text-center text-xl font-bold">
+          WHOLE CAKE BEST 3
+        </h2>
+        <p className="text-center text-sm mb-3">홀리 홀케이크 베스트3</p>
 
-        <div className="p-2">
+        <div className="my-2 flex flex-row">
           {items &&
             items.slice(0, 3).map((data) => (
               <div key={data.id}>
                 <Link href={`/itemDetail/${data.id}`}>
-                  <div className="flex flex-row">
+                  <div className="ml-5">
                     <img
                       className="w-24 h-24"
                       src={data.img}
                       alt="홀케이크 이미지"
                     />
-                    <div className="flex-col text-center">
+                    <div className="w-24 flex-col text-center">
                       <p className="text-xs">{data.name}</p>
                       <p className="text-xs text-red-500">
                         {data.price.toLocaleString()}원
@@ -71,31 +73,31 @@ const HomePage = () => {
 
       {/* macarone */}
       <div>
-        <h2 className="pt-4 text-center text-xl font-bold">MACARONE</h2>
-        <p className="text-center text-sm mb-3">마카롱</p>
+        <h2 className="pt-4 text-center text-xl font-bold">MACARON BEST 3</h2>
+        <p className="text-center text-sm mb-3">마카롱 베스트3</p>
 
-        <Row className="p-2">
+        <div className="my-2 flex flex-row">
           {items &&
-            items.slice(5, 9).map((data) => (
+            items.slice(5, 8).map((data) => (
               <div key={data.id}>
                 <Link href={`/itemDetail/${data.id}`}>
-                  <Col>
+                  <div className="ml-5">
                     <img
                       className="w-24 h-24"
                       src={data.img}
                       alt="마카롱 이미지"
                     />
-                    <div className="text-center">
+                    <div className="w-24 flex-col text-center">
                       <p className="text-xs">{data.name}</p>
                       <p className="text-xs text-red-500">
                         {data.price.toLocaleString()}원
                       </p>
                     </div>
-                  </Col>
+                  </div>
                 </Link>
               </div>
             ))}
-        </Row>
+        </div>
       </div>
     </Page>
   );

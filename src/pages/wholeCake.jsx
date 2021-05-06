@@ -25,18 +25,19 @@ const WholeCake = () => {
         <h2 className="mt-8 text-center text-2xl">HOLY WHOLE CAKE</h2>
         <p className="text-center text-sm mt-1">홀리 홀케이크</p>
 
-        {items.slice(0, 5).map((data) => (
-          <div key={data.id}>
-            <Link href={`/itemDetail/${data.id}`}>
-              <div className="col card demo-card-header-pic">
-                <div className="card-header">
-                  <img className="w-full h-64" src={data.img} />
-                </div>
-                <div className="card-content card-content-padding">
-                  <p className="text-base font-bold">{data.name}</p>
-                  <p className="text-base">{data.price.toLocaleString()}원</p>
-                </div>
-                {/* <div className="card-footer">
+        {items &&
+          items.slice(0, 5).map((data) => (
+            <div key={data.id}>
+              <Link href={`/itemDetail/${data.id}`}>
+                <div className="col card demo-card-header-pic">
+                  <div className="card-header">
+                    <img className="w-full h-64" src={data.img} />
+                  </div>
+                  <div className="card-content card-content-padding">
+                    <p className="text-base font-bold">{data.name}</p>
+                    <p className="text-base">{data.price.toLocaleString()}원</p>
+                  </div>
+                  {/* <div className="card-footer">
                   <Link href="#" className="link text-red-600">
                     찜
                   </Link>
@@ -44,10 +45,10 @@ const WholeCake = () => {
                     장바구니
                   </Link>
                 </div> */}
-              </div>
-            </Link>
-          </div>
-        ))}
+                </div>
+              </Link>
+            </div>
+          ))}
       </div>
     </Page>
   );

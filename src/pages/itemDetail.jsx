@@ -39,7 +39,6 @@ const ItemDetail = (f7route) => {
       name: items.name,
       price: items.price,
     });
-    // console.log("orderclick", items);
   };
 
   return (
@@ -83,11 +82,11 @@ const ItemDetail = (f7route) => {
         <p className="text-center text-base mt-6 mb-2 p-2 bg-gray-100">
           상세정보
         </p>
-        <img
-          className="w-full"
-          src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2hpdGUlMjBjaG9jb2xhdGVzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"
-          alt="상세페이지"
-        />
+        <div>
+          <p className="mt-7 text-center font-bold">맛있는 "{items.name}"</p>
+          <p className="mb-5 text-center">주문과 동시에 제작되는 상품입니다.</p>
+          <img className="w-full" src={items.img} alt="상세페이지 이미지" />
+        </div>
       </div>
     </Page>
   );
