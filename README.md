@@ -1,7 +1,7 @@
 # 케이크 쇼핑몰 CakeShop🍰
 
-**자사 쇼핑몰 플랫폼 하이브리드 앱 개발 개인 프로젝트**
-**React와 Ruby On Rails로 구현한 케이크샵 쇼핑몰**
+- **자사 쇼핑몰 플랫폼 하이브리드 앱 개발 개인 프로젝트**
+- **React와 Ruby On Rails로 구현한 케이크샵 쇼핑몰**
 
 
 ### Reference
@@ -14,14 +14,15 @@
 
 2021.04.05 ~ 2021.04.29
 
-</br>
 
 ## 기술 스택
 
 **Front-end**
+
 `HTML5`, `CSS3`, `JavaScript(ES6+)`, `React`, `React Hooks`
 
 **Back-end**
+
 `Ruby On Rails`, `PostgreSQL`
 
 - `Framework7`와 `Tailwind CSS` 이용한 신속한 UI 구현
@@ -35,7 +36,9 @@
 ### 로그인 & 회원가입
 - Local Storage의 access token을 이용한 로그인
 
+
 ![](https://images.velog.io/images/sodait/post/cfb80e20-f92b-4f16-90fd-a98b3e7735d6/login.gif)
+
 ![](https://images.velog.io/images/sodait/post/5ea4e4bc-9719-42bf-8d25-02d6dbd08f95/image.png)
 
 
@@ -47,9 +50,8 @@
 
 ![](https://images.velog.io/images/sodait/post/da78fbb0-bea2-4be5-80d7-17a4268aeccc/order_yup.jpg)
 
-- 결제하기 버튼 클릭 시, submit이 실행되며 입력받은 order 데이터 백엔드로 전송 및 저장
 
-![](https://images.velog.io/images/sodait/post/e200abc6-5663-467c-a919-603f4e095ae9/image.png)
+- 결제하기 버튼 클릭 시, submit이 실행되며 입력받은 order 데이터 백엔드로 전송 및 저장![](https://images.velog.io/images/sodait/post/e200abc6-5663-467c-a919-603f4e095ae9/image.png)
 
 </br>
 
@@ -67,8 +69,8 @@
 </br>
 
 ### 상세페이지
-
 ![](https://images.velog.io/images/sodait/post/4a781a4a-1c75-4e34-8673-de665d117b80/product_detail.gif)
+
 
 - 상세페이지 클릭 시, 각 items id별 상세페이지 확인
 ![](https://images.velog.io/images/sodait/post/34749367-25a1-4003-b325-f584691c74aa/image.png)
