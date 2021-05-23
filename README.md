@@ -20,4 +20,3 @@
 - `Framework7`와 `Tailwind CSS` 이용한 신속한 UI 구현
 - `Formik & Yup`을 활용한 주문 form 및 유효성 검사 기능
 - `Recoil`을 적용하여 주문 정보 전역 상태 관리
-
