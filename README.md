@@ -17,13 +17,11 @@
 
 ## 기술 스택
 
-**Front-end**
+**Front-end** `HTML5`, `CSS3`, `JavaScript(ES6+)`, `React`, `React Hooks`
 
-`HTML5`, `CSS3`, `JavaScript(ES6+)`, `React`, `React Hooks`
+**Back-end** `Ruby On Rails`, `PostgreSQL`
 
-**Back-end**
-
-`Ruby On Rails`, `PostgreSQL`
+</br>
 
 - `Framework7`와 `Tailwind CSS` 이용한 신속한 UI 구현
 - `Formik & Yup`을 활용한 주문 form 및 유효성 검사 기능
@@ -69,7 +67,8 @@
 </br>
 
 ### 상세페이지
-![](https://images.velog.io/images/sodait/post/4a781a4a-1c75-4e34-8673-de665d117b80/product_detail.gif)
+
+![product_detail](https://user-images.githubusercontent.com/63221633/119257863-2dd7b580-bc02-11eb-83e1-4b2d8e362eb8.gif)
 
 
 - 상세페이지 클릭 시, 각 items id별 상세페이지 확인
