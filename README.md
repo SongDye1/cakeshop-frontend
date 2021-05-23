@@ -11,9 +11,7 @@
 2021.04.05 ~ 2021.04.29
 
 ### 기술 스택
-**Front-end**
-
-`HTML5`, `CSS3`, `JavaScript(ES6+)`, `React`, `React Hooks`
+**Front-end**: `HTML5`, `CSS3`, `JavaScript(ES6+)`, `React`, `React Hooks`
 
 
 
