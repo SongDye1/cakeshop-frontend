@@ -17,9 +17,9 @@
 
 ## 기술 스택
 
-**Front-end** `HTML5`, `CSS3`, `JavaScript(ES6+)`, `React`, `React Hooks`
+- **Front-end** `HTML5`, `CSS3`, `JavaScript(ES6+)`, `React`, `React Hooks`
 
-**Back-end** `Ruby On Rails`, `PostgreSQL`
+- **Back-end** `Ruby On Rails`, `PostgreSQL`
 
 </br>
 
@@ -32,7 +32,7 @@
 ## 구현 기능
 
 ### 로그인 & 회원가입
-- Local Storage의 access token을 이용한 로그인
+Local Storage의 access token을 이용한 로그인
 
 
 ![](https://images.velog.io/images/sodait/post/cfb80e20-f92b-4f16-90fd-a98b3e7735d6/login.gif)
@@ -43,13 +43,15 @@
 </br>
 
 ### 주문하기
-- 로그인 & 회원가입과 마찬가지로 `Formik`과 `Yup` 라이브러리 사용하여 주문 form 구현 및 각각의 정보 유효성 검사
-- 필수 입력 사항(이름, 연락처, 주소) 모두 입력 시, 결제하기 버튼 활성화
+- `Formik` 라이브러리 사용하여 주문 form 구현
+- `Yup` 라이브러리 사용하여 각각 정보 유효성 검사
+- 필수 입력 사항(이름, 연락처, 주소) 모두 입력 시 결제하기 버튼 활성화
 
 ![](https://images.velog.io/images/sodait/post/da78fbb0-bea2-4be5-80d7-17a4268aeccc/order_yup.jpg)
 
 
-- 결제하기 버튼 클릭 시, submit이 실행되며 입력받은 order 데이터 백엔드로 전송 및 저장![](https://images.velog.io/images/sodait/post/e200abc6-5663-467c-a919-603f4e095ae9/image.png)
+결제하기 버튼 클릭 시, submit이 실행되며 입력받은 order 데이터 백엔드로 전송 및 저장
+![](https://images.velog.io/images/sodait/post/e200abc6-5663-467c-a919-603f4e095ae9/image.png)
 
 </br>
 
@@ -71,7 +73,7 @@
 ![product_detail](https://user-images.githubusercontent.com/63221633/119257863-2dd7b580-bc02-11eb-83e1-4b2d8e362eb8.gif)
 
 
-- 상세페이지 클릭 시, 각 items id별 상세페이지 확인
+상세페이지 클릭 시, 각 items id별 상세페이지 확인
 ![](https://images.velog.io/images/sodait/post/34749367-25a1-4003-b325-f584691c74aa/image.png)
 
 
